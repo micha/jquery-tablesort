@@ -1,5 +1,14 @@
+/**
+ * makeSortable: Tiny table sorting script for jQuery.
+ *
+ * Fork me on github:
+ *   http://github.com/micha/jquery-tablesort/
+ *
+ * Author:
+ *   Micha Niskin <micha@thinkminimo.com>
+ *   2009 no rights reserved
+ */
 (function($) {
-
   jQuery.fn.makeSortable = function() {
     var tbl = this;
     if (tbl.get()[0].tagName.toUpperCase() == "TABLE") {
@@ -55,5 +64,4 @@
     }
     return this;
   }
-
 })(jQuery);
