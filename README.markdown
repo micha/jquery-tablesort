@@ -72,15 +72,15 @@ _JavaScript_:
           var tbl = $("table.test");
 
           // append the data to the table
-          $.each(data, function(i,item) {
-              tbl.append(
-                $("<tr/>").append(
-                  $.map(item, function(ii,iitem) {
-                      return $("<td/>").text(iitem).get()[0];
-                  })
-                ).get()[0]
-              )
-          });
+          tbl.append(
+            $(data).map(function(i,item) {
+              return $("<tr/>").append(
+                $(this).map(function(i,item) {
+                  return $("<td/>").text(item).get()[0];
+                }).get()
+              ).get();
+            })
+          );
 
           // bind "zebra stripes" function and make the table sortable
           tbl.bind('sort', function() {
