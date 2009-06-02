@@ -29,9 +29,7 @@
                 vb = Date.parse(vb);
                 return (va < vb ? -1 : (va == vb ? 0 : 1));
               } else if (sort_as == "currency") {
-                va = va.replace(/^\$/, "");
-                vb = vb.replace(/^\$/, "");
-                return (va - vb);
+                return (va.replace(/^\$/, "") - vb.replace(/^\$/, ""));
               } else if (sort_as == "number") {
                 return (va - vb);
               } else if (sort_as == "string") {
