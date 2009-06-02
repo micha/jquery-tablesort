@@ -1,12 +1,12 @@
 /**
- * makeSortable: Tiny table sorting script for jQuery.
+ * jquery.tablesort.js: Tiny table sorting script for jQuery.
  *
  * Fork me on github:
  *   http://github.com/micha/jquery-tablesort/
  *
  * Author:
  *   Micha Niskin <micha@thinkminimo.com>
- *   2009 no rights reserved
+ *   Copyright 2009, no rights reserved.
  */
 (function($) {
   jQuery.fn.makeSortable = function() {
