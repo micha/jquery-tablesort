@@ -13,16 +13,11 @@
               function(row, rowv) {
                 var td = bak[row] = 
                   $(this).find("td").not(not).eq(col).text()+"";
-                var type =  (!isNaN(Date.parse(td)) 
-                              ? "date" 
-                              : (!isNaN(new Number(td)) 
-                                ? "number" 
-                                : (!isNaN(new Number(td.replace(/^\$/,""))) 
-                                  ? "currency" 
-                                  : "string"
-                                )
-                              )
-                            );
+                var type =  
+                  (!isNaN(Date.parse(td)) ? "date" 
+                    : (!isNaN(new Number(td)) ? "number" 
+                      : (!isNaN(new Number(td.replace(/^\$/,""))) ? "currency" 
+                        : "string")));
                 sort_as = (!!sort_as && sort_as != type ? "string" : type);
               }
             );
