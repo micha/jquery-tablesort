@@ -1,4 +1,20 @@
 
 col.num {
-  width: 100px;
+  width: 25px;
+}
+
+col.name {
+  width: 25px;
+}
+
+col.species {
+  width: 25px;
+}
+
+col.price {
+  width: 25px;
+}
+
+col.available {
+  width: 25px;
 }
