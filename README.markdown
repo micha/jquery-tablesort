@@ -9,6 +9,11 @@ supports data of the following types:
   * dates
   * currency ($)
 
+Demo
+====
+
+Check out how it works on the [github project pages](http://micha.github.com/jquery-tablesort/).
+
 Usage
 =====
 
