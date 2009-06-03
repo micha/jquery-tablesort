@@ -57,7 +57,8 @@ _CSS_:
 
 _JavaScript_:
 
-      // some data to put in the table dynamically
+      // Data to put into the table dynamically.
+
       var data = [
         [ 1, "small cat",   "$1.25" ],
         [ 2, "medium cat",  "$2.00" ],
@@ -65,33 +66,37 @@ _JavaScript_:
         [ 3, "x-large cat", "$3.50" ]
       ];
 
-      // onload event handler
+      // Function makes alternating "zebra stripes" on a table.
+
+      function zebra(tbl) {
+        $("tbody > tr", tbl).not($("td table *", tbl)).each(function(i,item) {
+            var classes = [ "odd", "even" ];
+            $(this).removeClass(classes[i%2]).addClass(classes[(i%2)+1]);
+        });
+      }
+
+      // Function adds rows to a table with data from a 2-dimensional array.
+
+      function appendToTable(tbl, data) {
+        tbl.append($(data).map(function(i,item) {
+            return $("<tr/>").append($(this).map(function(i,item) {
+                return $("<td/>").text(item).get()[0];
+            }).get()).get();
+        }));
+      }
+
+      // Set the 'onload' event handler.
+
       $(function() {
-
-          // the table
+      
           var tbl = $("table.test");
+          appendToTable(tbl, data);
 
-          // append the data to the table
-          tbl.append(
-            $(data).map(function(i,item) {
-              return $("<tr/>").append(
-                $(this).map(function(i,item) {
-                  return $("<td/>").text(item).get()[0];
-                }).get()
-              ).get();
-            })
-          );
+          // Bind "zebra stripes" function and make the table sortable.
+          // The 'sort' event will be fired once when table is first made
+          // sortable, and then whenever the table is re-sorted after that.
 
-          // bind "zebra stripes" function and make the table sortable
-          tbl.bind('sort', function() {
-              $("tbody > tr", this).not($("td table *", this)).each(
-                function(i,item) {
-                    $(this).removeClass(i % 2 ? "even" : "odd")
-                           .addClass(i % 2 ? "odd" : "even");
-                }
-              );
-          }).makeSortable();
-
+          tbl.bind('sort', function() { zebra(this) }).makeSortable();
       });
 
 Things to Know
