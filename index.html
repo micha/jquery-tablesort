@@ -9,7 +9,12 @@
     <script type="text/javascript">
 
       $(function() {
-        $("table.demo").makeSortable();
+          $("table.demo").bind('sort', function() {
+            $("tbody tr", this).not("td table *", this).each(function(i,item) {
+              var c = ["even","odd"];
+              $(this).removeClass(c[(i%2)+1]).addClass(c[i%2]);
+            });
+          }).makeSortable();
       });
 
     </script>
@@ -26,6 +31,7 @@
       </div>
       <hr/>
       <div class="container">
+        <h3>Hello There.</h3>
         <table class="demo" cellspacing="0" cellpadding="0">
           <caption>Adopt a Pet</caption>
           <colgroup>
@@ -66,13 +72,26 @@
               <td>$0.25</td>
               <td>Jun 17 2009</td>
             </tr>
+            <tr>
+              <td>4</td>
+              <td>scabby</td>
+              <td>bird</td>
+              <td>$0.02</td>
+              <td>Jun 04 2009</td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td>roger</td>
+              <td>goldfish</td>
+              <td>$0.02</td>
+              <td>Jun 05 2009</td>
+            </tr>
           </tbody>
         </table>
-        <div>
-          <h3>Hello There.</h3>
-          <p>This is a test. We have to write some words here, to see how it
-          is going to look like. Thanks for all the fish, and so long.</p>
-        </div>
+        <p>The table on the right has sortable columns. Click on the
+        column headings to sort and re-sort that column. The links up
+        above lead to the HTML and CSS source code for this page. 
+        Thanks!</p>
       </div>
       <hr />
     </div>

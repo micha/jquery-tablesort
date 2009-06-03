@@ -14,6 +14,10 @@ div {
   text-align: justify;
 }
 
+p {
+  font-size: 12pt;
+}
+
 hr {
   border-color: #444;
   border-style: solid;
@@ -26,11 +30,14 @@ hr {
 table.demo {
   border: 1px solid #444;
   float: right;
-  margin: 25px 0px 15px 15px;
+  margin: 0px 0px 15px 15px;
+  z-index: 999;
 }
 
 table.demo caption {
   caption-side: bottom;
+  font-size: smaller;
+  font-style: italic;
 }
 
 table.demo > thead > tr > th {
@@ -42,6 +49,10 @@ table.demo > thead > tr > th {
 table.demo > tbody > tr > td {
   padding: 5px 10px;
   border-bottom: 1px solid #ccc;
+}
+
+table.demo > tbody > tr.even {
+  background: #eeeeff;
 }
 
 table.demo > tbody > tr.last > td {
