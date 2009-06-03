@@ -10,30 +10,29 @@
  */
 (function($) {
   jQuery.fn.makeSortable = function() {
-    this.each(function() {
-      var tbl = $(this);
+    this.each(function(i_table, v_table) {
+      var tbl = $(this).addClass("jquery-tablesort");
       if (tbl.get()[0].tagName.toUpperCase() == "TABLE") {
-        $("th > *", tbl)
-          .each(function(col,colv) {
-            $(this).click(function() { 
-              var not  = tbl.find("td table *");
-              var rows = tbl.find("tbody tr").not(not);
+        $("th > *", tbl).each(function(i_col, v_col) {
+          var th = $(this);
+          th.click(function() { 
+            var not  = tbl.find("td table *");
+            tbl.find("tbody").not(not).each(function(i_tbody, v_tbody) {
+              var rows = $(v_tbody).find("tr").not(not);
               var bak  = [], sort_as = null;
-              rows.each(
-                function(row, rowv) {
-                  var td = bak[row] = 
-                    $(this).find("td").not(not).eq(col).text()+"";
-                  var type =  
-                    (!isNaN(Date.parse(td)) ? "date" 
-                      : (!isNaN(new Number(td)) ? "number" 
-                        : (!isNaN(new Number(td.replace(/^\$/,""))) ? "currency" 
-                          : "string")));
-                  sort_as = (!!sort_as && sort_as != type ? "string" : type);
-                }
-              );
-              rows = rows.sort(function(a,b) {
-                var va = $(a).find("td").not(not).eq(col).text();
-                var vb = $(b).find("td").not(not).eq(col).text();
+              rows.each(function(i_row, v_row) {
+                var td = bak[i_row] = 
+                  $(this).find("td").not(not).eq(i_col).text()+"";
+                var type =  
+                  (!isNaN(Date.parse(td)) ? "date" 
+                    : (!isNaN(new Number(td)) ? "number" 
+                      : (!isNaN(new Number(td.replace(/^\$/,""))) ? "currency" 
+                        : "string")));
+                sort_as = (!!sort_as && sort_as != type ? "string" : type);
+              });
+              rows = rows.sort(function(a, b) {
+                var va = $(a).find("td").not(not).eq(i_col).text();
+                var vb = $(b).find("td").not(not).eq(i_col).text();
                 if (sort_as == "date") {
                   va = Date.parse(va);
                   vb = Date.parse(vb);
@@ -50,17 +49,24 @@
                   return 0;
                 }
               });
+              $(".sort-asc", tbl).not(not).removeClass("sort-asc");
+              $(".sort-desc", tbl).not(not).removeClass("sort-desc");
               if ((function() {
                 for (var i=0; i<rows.size(); i++)
-                  if (rows.eq(i).find("td").not(not).eq(col).text() != bak[i])
+                  if (rows.eq(i).find("td").not(not).eq(i_col).text() != bak[i])
                     return false;
                 return true;
-              })())
+              })()) {
                 rows = $(rows.get().reverse());
-              tbl.find("tbody").not(not).append(rows);
-              tbl.trigger('sort');
+                th.removeClass("sort-asc").addClass("sort-desc");
+              } else {
+                th.removeClass("sort-desc").addClass("sort-asc");
+              }
+              $(v_tbody).append(rows);
             });
+            tbl.trigger('sort');
           });
+        });
         tbl.trigger('sort');
       }
     });
