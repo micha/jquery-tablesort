@@ -96,6 +96,10 @@ div.nav > a {
   z-index: 999;
 }
 
+div.nav > a:hover {
+  text-decoration: underline;
+}
+
 div.container {
   padding-top: 25px;
   padding-bottom: 75px;
