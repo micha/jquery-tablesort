@@ -22,7 +22,7 @@ _HTML_:
           <script type="text/javascript" src="jquery.tablesort.js"></script>
         </head>
         <body>
-          <h2>Tablesort Test</h2>
+          <h2>The Cat Store</h2>
           <table class="test" cellspacing="0" cellpadding="0">
             <colgroup>
               <col span="1" width="20%"/>
@@ -60,10 +60,10 @@ _JavaScript_:
       // Data to put into the table dynamically.
 
       var data = [
-        [ 1, "small cat",   "$1.25" ],
-        [ 2, "medium cat",  "$2.00" ],
-        [ 3, "large cat",   "$3.50" ],
-        [ 3, "x-large cat", "$3.50" ]
+        [ 1, "small cat",     "$1.25" ],
+        [ 2, "medium cat",    "$2.00" ],
+        [ 3, "large cat",     "$3.50" ],
+        [ 4, "x-large cat",  "$35.50" ]
       ];
 
       // Function makes alternating "zebra stripes" on a table.
