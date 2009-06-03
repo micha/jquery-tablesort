@@ -2,3 +2,7 @@
 th {
   padding: 10px;
 }
+
+table {
+  border: 1px solid #444;
+}
