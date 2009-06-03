@@ -4,17 +4,17 @@ col.num {
 }
 
 col.name {
-  width: 25px;
+  width: 200px;
 }
 
 col.species {
-  width: 25px;
+  width: 200px;
 }
 
 col.price {
-  width: 1px;
+  width: 100px;
 }
 
 col.available {
-  width: 1px;
+  width: 50px;
 }
