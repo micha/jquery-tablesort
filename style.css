@@ -6,3 +6,7 @@ th {
 table {
   border: 1px solid #444;
 }
+
+td {
+  padding: 0px 10px 0px 10px;
+}
