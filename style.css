@@ -1,20 +1,4 @@
 
-col.num {
-  width: 25px;
-}
-
-col.name {
-  width: 200px;
-}
-
-col.species {
-  width: 200px;
-}
-
-col.price {
-  width: 100px;
-}
-
-col.available {
-  width: 50px;
+th {
+  padding: 10px;
 }
