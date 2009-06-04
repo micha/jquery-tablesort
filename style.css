@@ -1,3 +1,26 @@
+
+/*  JQUERY-TABLESORT CSS
+    The 'jquery-tablesort' class is added by the jQuery makeSortable method. */
+
+table.jquery-tablesort > thead > tr > th > * {
+  text-align: left;
+  cursor: pointer;
+  padding-right: 20px;
+  background-image: url('bg.gif');
+  background-position: center right;
+  background-repeat: no-repeat;
+}
+
+table.jquery-tablesort > thead > tr > th > *.sort-asc {
+  background-image: url('asc.gif');
+}
+
+table.jquery-tablesort > thead > tr > th > *.sort-desc {
+  background-image: url('desc.gif');
+}
+
+/* END JQUERY-TABLESORT CSS */
+
 * {
   color: #222;
   position: relative;
@@ -57,23 +80,6 @@ table.demo > tbody > tr.even {
 
 table.demo > tbody > tr.last > td {
   border-bottom: none;
-}
-
-table.jquery-tablesort > thead > tr > th > * {
-  text-align: left;
-  cursor: pointer;
-  padding-right: 20px;
-  background-image: url('bg.gif');
-  background-position: center right;
-  background-repeat: no-repeat;
-}
-
-table.jquery-tablesort > thead > tr > th > *.sort-asc {
-  background-image: url('asc.gif');
-}
-
-table.jquery-tablesort > thead > tr > th > *.sort-desc {
-  background-image: url('desc.gif');
 }
 
 div.nav {
