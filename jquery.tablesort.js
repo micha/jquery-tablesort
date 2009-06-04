@@ -13,7 +13,7 @@
     this.each(function(i_table, v_table) {
       var tbl = $(this).addClass("jquery-tablesort");
       if (tbl.get()[0].tagName.toUpperCase() == "TABLE") {
-        $("th > *", tbl).each(function(i_col, v_col) {
+        $("th > *:first-child", tbl).each(function(i_col, v_col) {
           var th = $(this);
           th.click(function() { 
             var not  = tbl.find("td table *");
