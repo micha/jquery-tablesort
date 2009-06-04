@@ -61,6 +61,7 @@ table.demo caption {
   caption-side: bottom;
   font-size: smaller;
   font-style: italic;
+  padding: 5px;
 }
 
 table.demo > thead > tr > th {
