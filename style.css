@@ -33,6 +33,14 @@ html, body {
   font-size: 14pt;
 }
 
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  color: #f00;
+}
+
 div {
   text-align: justify;
 }
@@ -91,20 +99,16 @@ div.nav {
   padding: 5px 15px;
 }
 
-div.nav > span {
-  color: #fff;
-}
-
 div.nav > a {
   text-align: center;
-  text-decoration: none;
   color: #fff;
   margin: 0 auto;
+  padding: 10px;
   z-index: 999;
 }
 
 div.nav > a:hover {
-  text-decoration: underline;
+  color: #f00;
 }
 
 div.container {
