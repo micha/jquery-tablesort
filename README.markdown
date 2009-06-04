@@ -2,7 +2,10 @@ Minimal Table Sorter
 ====================
 
 This is a very small script to make HTML tables sortable using JavaScript. It
-supports data of the following types:
+weighs in at about 1.2K, compressed but not packed. It's intended to be simple,
+fast, and easy to use.
+
+It supports sorting data of the following types:
 
   * strings
   * numbers
@@ -12,7 +15,7 @@ supports data of the following types:
 Demo
 ====
 
-Check out how it works on the [github project pages](http://micha.github.com/jquery-tablesort/).
+Check out how it works on the [github project page](http://micha.github.com/jquery-tablesort/).
 
 Usage
 =====
@@ -112,3 +115,9 @@ Things to Know
   * When you dynamically add or remove rows from the table you can trigger 
     the `sort` event to cause the "zebra stripes" to rearrange themselves
     properly.
+  * The ascending/descending state of each column is indicated by
+    CSS classes that are applied to the table headings. Columns that are
+    sorted in ascending order will have the class `sort-asc`, or the class
+    `sort-desc` for descending.
+  * The table itself is given the class `jquery-tablesort` so you can set
+    up CSS for sortable tables separately, if you want.
